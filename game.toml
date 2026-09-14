@@ -1,0 +1,65 @@
+# Autofilled by tools/new_project_layout/probe_disc.py from your legal dump.
+# Review before shipping. Runtime quirks / overlay seeds still need hand work.
+
+[game]
+name = "Galerians"
+id = "SLES-02328"
+players = 2
+exe = "disc/SLES_023.28"
+# Verified as one program on N images (verify_disc_set.py).
+# Disc 1 boots; the rest are data. The runtime builds its disc
+# roster from this list and mounts the SELECTED one (remembered
+# in disc_index), so the launcher can switch discs between runs.
+# Swapping mid-session is MULTI_DISC.md P3 and is not implemented.
+discs = [
+    "disc/Galerians (Europe) (Disc 1).cue",
+    "disc/Galerians (Europe) (Disc 2).cue",
+    "disc/Galerians (Europe) (Disc 3).cue",
+]
+load_address = "0x80023000"
+entry_pc = "0x80165314"
+text_size = "0x001D2000"
+stack_base = "0x801FFFF0"
+
+# Digests are for data Track 01 (first BINARY FILE / TRACK 01).
+[prepare_disc]
+out_dir = "disc"
+bin_name = "Galerians (Europe) (Disc 1).bin"
+cue_name = "Galerians (Europe) (Disc 1).cue"
+boot_exe = "SLES_023.28"
+known_sizes = [683248944]
+known_md5 = [
+  "6ff87c94b34d9371fd57a744b245a74e",
+]
+known_sha1 = [
+  "b35fe93b79226fb23f31a4822487d8cbade42d89",
+]
+known_crc32 = [
+  "4f8c21f8",
+]
+
+[recompiler]
+bios_config = "psxrecomp/bios/SCPH5552.toml"
+seeds = "seeds/ghidra_funcs.txt"
+out_dir = "generated"
+strict = true
+
+[runtime]
+openbios = false
+window_title = "Galerians Recompiled"
+memcard_dir = "saves"
+overlay_cache = true
+
+[video]
+renderer = "opengl"
+aspect_ratio = "4:3"
+
+[controller]
+default_mode = "digital"
+
+# Online mount gate: digests + track count + optional TOC fingerprint
+# (see docs/NETPLAY.md).
+[netplay]
+require_cue = true
+required_tracks = 1
+required_disc_fp = "56513843d8be2d6dde55f8e6ff26fbf91966c66af00635abaf7591defc15bde2"

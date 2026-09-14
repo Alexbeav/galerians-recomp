@@ -1,0 +1,31 @@
+{
+  "cue_path": "I:\\Projects\\PSX-Ports-pilot\\_disc\\galerians\\Galerians (Europe) (Disc 1).cue",
+  "cue_name": "Galerians (Europe) (Disc 1).cue",
+  "bin_name": "Galerians (Europe) (Disc 1).bin",
+  "track_count": 1,
+  "data_track_size": 683248944,
+  "data_track_md5": "6ff87c94b34d9371fd57a744b245a74e",
+  "data_track_sha1": "b35fe93b79226fb23f31a4822487d8cbade42d89",
+  "data_track_crc32": "4f8c21f8",
+  "boot_exe": "SLES_023.28",
+  "serial": "SLES-02328",
+  "serial_exe": "SLES_023.28",
+  "volume_id": "SLES-02328",
+  "display_name": "Galerians",
+  "load_address": "0x80023000",
+  "entry_pc": "0x80165314",
+  "text_size": "0x001D2000",
+  "stack_base": "0x801FFFF0",
+  "require_cue": true,
+  "required_disc_fp": "56513843d8be2d6dde55f8e6ff26fbf91966c66af00635abaf7591defc15bde2",
+  "boot_exe_sha256": "bb2ec2f4a6bc581d59e8e4eaf0598a6c6262ba6298904561d8da24717aa78bef",
+  "seed_count": 1117,
+  "warnings": [
+    "cue has only 1 TRACK \u2014 Track-01-only dumps fail multi-track netplay/catalog gates; prefer a full Redump cue."
+  ],
+  "notes": [
+    "entry_pc/load_address/text_size/stack_base taken from PS-X EXE header.",
+    "seeds are first-pass boot-EXE JAL targets (+ entry); expect to grow as overlays / runtime paths are discovered.",
+    "required_disc_fp is psxrecomp-toc-v1 (matches runtime DiscIdentity)."
+  ]
+}
